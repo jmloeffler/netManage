@@ -1,27 +1,37 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="netManage/ManagedService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="netManageLoadTester/Main.cs">
     <Files>
-      <File FileName="netManage/Main.cs" Line="10" Column="21" />
-      <File FileName="netManage/ManagedService.cs" Line="59" Column="46" />
-      <File FileName="netManageLoadTester/Main.cs" Line="20" Column="5" />
+      <File FileName="netManage/Main.cs" Line="27" Column="7" />
+      <File FileName="netManage/ManagedService.cs" Line="1" Column="1" />
+      <File FileName="netManage/UnmanagedService.cs" Line="6" Column="31" />
+      <File FileName="netManage/ServiceManagerInterceptor.cs" Line="9" Column="55" />
+      <File FileName="netManage/HttpRequestHandler.cs" Line="12" Column="3" />
+      <File FileName="netManageLoadTester/Main.cs" Line="18" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="netManage" expanded="True">
-            <Node name="ManagedService.cs" selected="True" />
+          <Node name="netManage" expanded="True" />
+          <Node name="netManageLoadTester" expanded="True">
+            <Node name="Main.cs" selected="True" />
           </Node>
-          <Node name="netManageLoadTester" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/jloeffler/projects/csharp/netManage/netManage/ServiceManagerInterceptor.cs" line="23" />
+      <Breakpoint file="/home/jloeffler/projects/csharp/netManage/netManage/ServiceManagerInterceptor.cs" line="82" />
+      <Breakpoint file="/home/jloeffler/projects/csharp/netManage/netManage/ServiceManagerInterceptor.cs" line="19" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

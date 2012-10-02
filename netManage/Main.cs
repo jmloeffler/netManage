@@ -1,4 +1,8 @@
 using System;
+using Castle.Windsor;
+using Castle.MicroKernel.Registration;
+using Castle.DynamicProxy;
+using Castle.MicroKernel.Lifestyle.Pool;
 
 namespace netManage
 {
@@ -6,14 +10,29 @@ namespace netManage
 	{
 		public static void Main (string[] args)
 		{
-			string serviceUri = "http://127.0.0.1:12000/";
-			string managerUri = "http://1ser0.0.1:11000/";
-			var svc = new ManagedService(serviceUri, managerUri);
+			var container = new WindsorContainer();
+			container.Register (
+				Component.For<ServiceManagerInterceptor>().LifeStyle.Singleton);
 			
-			svc.Start();
+			container.Register (
+				Component.For<IHttpRequestHandler>()
+					.ImplementedBy<HttpRequestHandler>()
+					.Interceptors<ServiceManagerInterceptor>()
+				);
+			
+			var managerService = new ManagerService(container);
+			managerService.Start ();
+			
+			var unmanagedSvc = new UnmanagedService(container.Resolve<IHttpRequestHandler>());
+			unmanagedSvc.Start ();
 			
 			Console.WriteLine ("Press enter to stop the service");
 			Console.ReadLine ();
+			
+			managerService.Stop ();
+			unmanagedSvc.Stop ();
+			
+			container.Dispose ();
 		}
 	}
 }

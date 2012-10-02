@@ -32,11 +32,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\castle.windsor.3.1.0\net40\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\castle.windsor.3.1.0\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="ManagedService.cs" />
+    <Compile Include="UnmanagedService.cs" />
+    <Compile Include="ServiceManagerInterceptor.cs" />
+    <Compile Include="HttpRequestHandler.cs" />
+    <Compile Include="ServiceState.cs" />
+    <Compile Include="ManagerService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
