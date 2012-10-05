@@ -43,10 +43,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="UnmanagedService.cs" />
-    <Compile Include="ServiceManagerInterceptor.cs" />
-    <Compile Include="HttpRequestHandler.cs" />
-    <Compile Include="ServiceState.cs" />
     <Compile Include="ManagerService.cs" />
+    <Compile Include="ServiceStatistics.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

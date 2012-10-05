@@ -12,18 +12,17 @@ namespace netManage
 		{
 			var container = new WindsorContainer();
 			container.Register (
-				Component.For<ServiceManagerInterceptor>().LifeStyle.Singleton);
+				Component.For<ManagerService>()
+					.LifeStyle.Singleton);
 			
 			container.Register (
-				Component.For<IHttpRequestHandler>()
-					.ImplementedBy<HttpRequestHandler>()
-					.Interceptors<ServiceManagerInterceptor>()
-				);
+				Component.For<UnmanagedService>()
+					.Interceptors<ManagerService>());
 			
-			var managerService = new ManagerService(container);
+			var managerService = container.Resolve<ManagerService>();
 			managerService.Start ();
 			
-			var unmanagedSvc = new UnmanagedService(container.Resolve<IHttpRequestHandler>());
+			var unmanagedSvc = container.Resolve<UnmanagedService>();
 			unmanagedSvc.Start ();
 			
 			Console.WriteLine ("Press enter to stop the service");
