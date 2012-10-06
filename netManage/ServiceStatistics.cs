@@ -5,11 +5,17 @@ namespace netManage
 {
 	public class ServiceStatistics
 	{
-		private long _requestsPerSecond;
-		public long RequestsPerSecond
+		private long counter;
+		public long RequestsPerSecond { get; private set; }
+		
+		public void Increment()
 		{
-			get { return Interlocked.Read(ref _requestsPerSecond); }
-			set { Interlocked.Exchange(ref _requestsPerSecond, value); }
+			counter++;
+		}
+		
+		public void Latch(long elapsedSeconds)
+		{
+			RequestsPerSecond = counter / elapsedSeconds;
 		}
 	}
 }
